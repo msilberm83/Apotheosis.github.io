@@ -1,495 +1,853 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Apotheosis Church | Growth Through Experience</title>
 
-<meta name="description" content="Apotheosis Church is a modern spiritual community focused on growth through experience, honesty, humility, compassion, responsible freedom, consciousness, philosophy, and personal transformation.">
-<meta name="keywords" content="Apotheosis Church, DMT, consciousness, spirituality, philosophy, personal growth, mystical experiences, near death experiences, self improvement, humility, compassion, redemption, responsible freedom">
+<meta name="description" content="Apotheosis Church is a modern spiritual community focused on growth through experience, responsible freedom, compassion, humility, consciousness, DMT philosophy, mystical experiences, forgiveness, redemption, and personal transformation." />
+<meta name="keywords" content="Apotheosis Church, consciousness, DMT spirituality, DMT philosophy, personal growth, spirituality, philosophy, mystical experiences, near-death experiences, ethics, self improvement, meaning of life, humility, forgiveness, redemption" />
+<meta name="author" content="Apotheosis Church" />
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:title" content="Apotheosis Church" />
+<meta property="og:description" content="Grow through every experience. Inspire through every action. Lead with honesty and humility." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/logo.png" />
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --black:#030406;
+  --deep:#060a12;
+  --navy:#08111f;
+  --navy2:#0d182a;
+  --card:#0d1422;
+  --gold:#d4af37;
+  --gold2:#f7d878;
+  --gold3:#8f6f1d;
+  --text:#f4efe2;
+  --muted:#b8c1d1;
+  --line:rgba(212,175,55,.28);
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:#05070d;
-  color:#f5f3ea;
-  font-family:Inter,sans-serif;
-  line-height:1.7;
+  background:var(--black);
+  color:var(--text);
+  font-family:Inter, sans-serif;
+  line-height:1.65;
+  overflow-x:hidden;
 }
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-
-:root{
-  --gold:#d4af37;
-  --gold2:#f2d77b;
-  --dark:#05070d;
-  --navy:#09111f;
-  --card:#101827;
-  --text:#d8deea;
-  --muted:#9fa8b8;
-}
-
-.site-nav{
+body::before{
+  content:"";
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:99;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(212,175,55,.09), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(55,104,175,.14), transparent 35%),
+    radial-gradient(circle at 50% 90%, rgba(212,175,55,.06), transparent 35%);
+  pointer-events:none;
+  z-index:-3;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,textarea{font-family:inherit}
+
+.stars{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1px),
+    radial-gradient(rgba(247,216,120,.7) 1px, transparent 1px);
+  background-size:90px 90px, 160px 160px;
+  background-position:0 0, 40px 80px;
+  opacity:.22;
+  animation:starsMove 80s linear infinite;
+}
+@keyframes starsMove{
+  from{transform:translateY(0)}
+  to{transform:translateY(-500px)}
+}
+
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:50;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:16px 6%;
-  background:rgba(5,7,13,.72);
-  backdrop-filter:blur(12px);
+  padding:16px 6vw;
+  background:rgba(3,4,6,.72);
+  backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(212,175,55,.18);
 }
-.nav-brand{
+.brand{
   display:flex;
   align-items:center;
   gap:12px;
   font-family:Cinzel,serif;
-  color:var(--gold);
+  color:var(--gold2);
+  font-weight:900;
   letter-spacing:1.5px;
-  font-weight:700;
 }
-.nav-brand img{
-  width:42px;
-  height:42px;
+.brand img{
+  width:48px;
+  height:48px;
   object-fit:cover;
   border-radius:50%;
+  filter:drop-shadow(0 0 14px rgba(212,175,55,.35));
 }
-.nav-links{
+.navlinks{
   display:flex;
-  gap:24px;
-  color:#e6dcc0;
-  font-size:.9rem;
+  align-items:center;
+  gap:22px;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:#e8dfc8;
 }
-.nav-links a:hover{color:var(--gold2)}
+.navlinks a:hover{color:var(--gold2)}
+.nav-donate{
+  border:1px solid var(--gold);
+  padding:9px 14px;
+  border-radius:999px;
+  color:var(--gold2)!important;
+}
+.menu{
+  display:none;
+  border:1px solid var(--line);
+  color:var(--gold2);
+  background:rgba(255,255,255,.04);
+  padding:9px 12px;
+  border-radius:10px;
+}
 
 .hero{
   min-height:100vh;
-  background:
-    linear-gradient(rgba(0,0,0,.55),rgba(5,7,13,.92)),
-    url("images/hero.jpg");
-  background-size:cover;
-  background-position:center;
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:120px 24px 80px;
+  padding:130px 22px 90px;
+  background:
+    linear-gradient(rgba(0,0,0,.35), rgba(3,4,6,.88)),
+    url("images/hero.jpg");
+  background-size:cover;
+  background-position:center;
+  isolation:isolate;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center, transparent 0%, rgba(0,0,0,.14) 36%, rgba(0,0,0,.85) 100%);
+  z-index:-1;
 }
 .hero-inner{
-  max-width:980px;
+  max-width:1050px;
 }
 .hero-logo{
-  width:min(340px,82vw);
-  margin:0 auto 28px;
-  filter:drop-shadow(0 0 30px rgba(212,175,55,.4));
+  width:min(420px,84vw);
+  margin:0 auto 26px;
+  filter:drop-shadow(0 0 40px rgba(212,175,55,.52));
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
 .kicker{
   color:var(--gold2);
-  letter-spacing:3px;
   text-transform:uppercase;
-  font-size:.85rem;
-  margin-bottom:14px;
-}
-h1{
-  font-family:Cinzel,serif;
-  font-size:clamp(2.3rem,8vw,5.5rem);
-  color:var(--gold);
   letter-spacing:4px;
-  line-height:1.05;
-  margin-bottom:18px;
+  font-size:.8rem;
+  margin-bottom:16px;
+  font-weight:800;
+}
+h1,h2,h3{font-family:Cinzel,serif}
+h1{
+  font-size:clamp(2.3rem,8vw,6rem);
+  line-height:1;
+  letter-spacing:5px;
+  color:var(--gold2);
+  text-shadow:0 0 30px rgba(212,175,55,.38);
 }
 .hero h2{
-  font-size:clamp(1.1rem,4vw,2rem);
   color:#fff;
+  font-size:clamp(1.1rem,3.5vw,2.1rem);
+  margin:22px 0 18px;
+  font-family:Inter,sans-serif;
   font-weight:500;
-  margin-bottom:22px;
 }
 .hero p{
-  max-width:760px;
+  max-width:790px;
   margin:0 auto;
-  color:#dde4ef;
-  font-size:clamp(1rem,2.5vw,1.22rem);
+  color:#dce3ee;
+  font-size:clamp(1rem,2.4vw,1.22rem);
 }
-.buttons{
-  margin-top:34px;
+.actions
+{
   display:flex;
   justify-content:center;
   gap:16px;
   flex-wrap:wrap;
+  margin-top:34px;
 }
 .btn{
-  padding:14px 28px;
+  display:inline-block;
+  padding:14px 26px;
   border-radius:999px;
-  font-weight:700;
-  border:1px solid rgba(212,175,55,.55);
+  border:1px solid var(--gold);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-size:.82rem;
 }
-.btn-primary{
-  background:var(--gold);
-  color:#080b12;
-}
-.btn-secondary{
-  color:var(--gold2);
-  background:rgba(255,255,255,.04);
-}
+.btn.primary{background:var(--gold);color:#05070d}
+.btn.secondary{background:rgba(0,0,0,.38);color:var(--gold2)}
 
-section{
-  padding:90px 6%;
-}
-.container{
-  max-width:1180px;
-  margin:auto;
-}
-.section-title{
-  text-align:center;
-  margin-bottom:48px;
-}
-.section-title span{
+section{padding:96px 6vw}
+.container{max-width:1220px;margin:auto}
+
+.section-head{text-align:center;margin-bottom:52px}
+.section-head small{
   color:var(--gold2);
   text-transform:uppercase;
   letter-spacing:3px;
-  font-size:.78rem;
+  font-weight:800;
 }
-.section-title h2{
-  font-family:Cinzel,serif;
-  color:var(--gold);
-  font-size:clamp(2rem,5vw,3.3rem);
-  margin-top:8px;
+.section-head h2{
+  color:var(--gold2);
+  font-size:clamp(2rem,5vw,3.5rem);
+  margin-top:10px;
 }
-.section-title p{
-  max-width:760px;
-  margin:14px auto 0;
-  color:var(--text);
+.section-head p{
+  max-width:820px;
+  margin:16px auto 0;
+  color:var(--muted);
 }
 
-.split{
+.feature{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:42px;
   align-items:center;
 }
-.split img{
-  border-radius:26px;
-  border:1px solid rgba(212,175,55,.22);
-  box-shadow:0 20px 70px rgba(0,0,0,.45);
+.feature img{
+  border-radius:28px;
+  border:1px solid var(--line);
+  box-shadow:0 30px 90px rgba(0,0,0,.45);
 }
-.split h3{
-  font-family:Cinzel,serif;
-  color:var(--gold);
+.feature h3{
+  color:var(--gold2);
   font-size:2rem;
-  margin-bottom:18px;
+  margin-bottom:16px;
 }
-.split p{color:var(--text);margin-bottom:16px}
+.feature p{color:var(--muted);margin-bottom:14px}
 
-.cards{
+.belief-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:24px;
 }
-.card{
-  background:linear-gradient(180deg,#111a2b,#0b111d);
-  border:1px solid rgba(212,175,55,.2);
+.belief{
+  background:linear-gradient(180deg,rgba(15,24,40,.96),rgba(5,8,14,.96));
+  border:1px solid var(--line);
   border-radius:24px;
   padding:28px;
-  min-height:220px;
+  min-height:230px;
   transition:.25s;
 }
-.card:hover{
+.belief:hover{
   transform:translateY(-6px);
-  border-color:rgba(212,175,55,.55);
+  border-color:rgba(247,216,120,.75);
+  box-shadow:0 20px 60px rgba(212,175,55,.12);
 }
-.card h3{
-  color:var(--gold);
-  font-family:Cinzel,serif;
-  margin-bottom:12px;
-}
-.card p{color:var(--text);font-size:.96rem}
 
-.image-grid{
+.belief h3{
+  color:var(--gold2);
+  font-size:1.25rem;
+  margin-bottom:10px;
+}
+
+.belief p{
+  color:var(--muted);
+  font-size:.96rem;
+}
+
+.statement{
+  background:
+    linear-gradient(rgba(3,4,6,.86),rgba(3,4,6,.96)),
+    url("images/sacred-geometry.png");
+  background-size:cover;
+  background-position:center;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.statement-box{
+  max-width:1050px;
+  margin:auto;
+  background:rgba(5,8,14,.78);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:42px;
+  backdrop-filter:blur(12px);
+}
+
+.statement-box p{
+  color:#dce3ee;
+  margin-bottom:18px;
+}
+
+.statement-box strong{
+  color:var(--gold2);
+}
+
+.chapter-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:18px;
 }
-.image-tile{
+
+.chapter{
+  background:linear-gradient(180deg,rgba(15,24,40,.96),rgba(5,8,14,.96));
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:24px;
+  min-height:160px;
+}
+
+.chapter h3{
+  color:var(--gold2);
+  margin-bottom:8px;
+}
+
+.chapter p{
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+.visual-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.visual-card{
   position:relative;
   overflow:hidden;
-  border-radius:22px;
-  min-height:250px;
-  border:1px solid rgba(212,175,55,.18);
+  min-height:360px;
+  border-radius:28px;
+  border:1px solid var(--line);
+  box-shadow:0 24px 80px rgba(0,0,0,.45);
 }
-.image-tile img{
+
+.visual-card img{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
-  position:absolute;
-  inset:0;
+  transition:.45s;
 }
-.image-tile:after{
+
+.visual-card:hover img{
+  transform:scale(1.06);
+}
+
+.visual-card::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,.08));
+  background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.1));
 }
-.image-tile span{
+
+.visual-card div{
   position:absolute;
-  left:18px;
-  bottom:18px;
+  left:24px;
+  right:24px;
+  bottom:24px;
   z-index:2;
-  color:#fff;
-  font-weight:700;
 }
 
-.banner{
-  background:
-    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.82)),
-    url("images/light-through-darkness.png");
-  background-size:cover;
-  background-position:center;
+.visual-card h3{
+  color:var(--gold2);
+  font-size:1.4rem;
+  margin-bottom:8px;
+}
+
+.visual-card p{
+  color:#e6edf7;
+}
+
+.donate{
   text-align:center;
-  border-top:1px solid rgba(212,175,55,.18);
-  border-bottom:1px solid rgba(212,175,55,.18);
-}
-.banner h2{
-  font-family:Cinzel,serif;
-  color:var(--gold);
-  font-size:clamp(2rem,6vw,4rem);
-}
-.banner p{
-  max-width:800px;
-  margin:18px auto 0;
-  color:#ecedf4;
-  font-size:1.15rem;
-}
-
-.footer{
   background:
-    linear-gradient(rgba(0,0,0,.80),rgba(0,0,0,.92)),
+    linear-gradient(rgba(0,0,0,.76),rgba(0,0,0,.9)),
     url("images/footer-landscape.png");
   background-size:cover;
   background-position:center;
-  padding:80px 6%;
-  text-align:center;
-}
-.footer img{
-  width:120px;
-  margin:0 auto 22px;
-}
-.footer h3{
-  font-family:Cinzel,serif;
-  color:var(--gold);
-  font-size:2rem;
-}
-.footer p{
-  color:#d7dce5;
-  max-width:700px;
-  margin:14px auto;
 }
 
-@media(max-width:900px){
-  .nav-links{display:none}
-  .split{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr 1fr}
-  .image-grid{grid-template-columns:1fr 1fr}
+.donate-box{
+  max-width:900px;
+  margin:auto;
+  background:rgba(5,8,14,.8);
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:48px;
+  backdrop-filter:blur(10px);
 }
-@media(max-width:600px){
-  .site-nav{padding:12px 18px}
-  .nav-brand span{font-size:.8rem}
-  section{padding:70px 20px}
-  .cards{grid-template-columns:1fr}
-  .image-grid{grid-template-columns:1fr}
-  .image-tile{min-height:240px}
-  h1{letter-spacing:2px}
+
+.donate-box h2{
+  color:var(--gold2);
+  font-size:clamp(2rem,5vw,3.5rem);
+  margin-bottom:18px;
+}
+
+.donate-box p{
+  color:#dce3ee;
+  margin-bottom:16px;
+}
+
+.faq-list{
+  max-width:1000px;
+  margin:auto;
+}
+
+.faq-item{
+  background:rgba(15,24,40,.9);
+  border:1px solid var(--line);
+  border-radius:18px;
+  margin-bottom:14px;
+  overflow:hidden;
+}
+
+.faq-question{
+  padding:20px;
+  color:var(--gold2);
+  font-weight:800;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.faq-answer{
+  display:none;
+  padding:0 20px 20px;
+  color:var(--muted);
+}
+
+.faq-item.open .faq-answer{
+  display:block;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:36px;
+  align-items:stretch;
+}
+
+.contact-card{
+  background:linear-gradient(180deg,rgba(15,24,40,.96),rgba(5,8,14,.96));
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:36px;
+}
+
+.contact-card h2{
+  color:var(--gold2);
+  font-size:2.2rem;
+  margin-bottom:16px;
+}
+
+.contact-card p{
+  color:var(--muted);
+  margin-bottom:18px;
+}
+
+.contact-card input,
+.contact-card textarea{
+  width:100%;
+  padding:14px 15px;
+  margin-bottom:12px;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,.3);
+  background:#060a12;
+  color:#fff;
+}
+
+.contact-card textarea{
+  min-height:140px;
+}
+
+.contact-image img{
+  width:100%;
+  height:100%;
+  min-height:460px;
+  object-fit:cover;
+  border-radius:28px;
+  border:1px solid var(--line);
+}
+
+.footer{
+  text-align:center;
+  padding:60px 6vw;
+  background:#020305;
+  border-top:1px solid var(--line);
+}
+
+.footer img{
+  width:95px;
+  margin:0 auto 18px;
+}
+
+.footer h3{
+  color:var(--gold2);
+  font-size:2rem;
+  margin-bottom:10px;
+}
+
+.footer p{
+  color:var(--muted);
+  max-width:760px;
+  margin:0 auto 10px;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .75s ease, transform .75s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:1050px){
+  .navlinks{display:none}
+
+  .menu{display:block}
+
+  .nav.open .navlinks{
+    display:flex;
+    position:absolute;
+    top:76px;
+    left:18px;
+    right:18px;
+    flex-direction:column;
+    background:rgba(3,4,6,.96);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:20px;
+  }
+
+  .feature,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .belief-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .chapter-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .visual-row{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:650px){
+  section{
+    padding:74px 20px;
+  }
+
+  .hero{
+    padding-top:120px;
+  }
+
+  h1{
+    letter-spacing:2px;
+  }
+
+  .brand span{
+    font-size:.8rem;
+  }
+
+  .belief-grid,
+  .chapter-grid{
+    grid-template-columns:1fr;
+  }
+
+  .feature img,
+  .contact-image img{
+    min-height:auto;
+    height:auto;
+  }
+
+  .statement-box,
+  .donate-box{
+    padding:26px;
+  }
 }
 </style>
 </head>
-
 <body>
 
-<nav class="site-nav">
-  <a class="nav-brand" href="#home">
-    <img src="images/logo.png" alt="Apotheosis Church logo">
+<div class="stars"></div>
+
+<nav class="nav">
+  <a class="brand" href="#home">
+    <img src="images/church-emblem.png" alt="Apotheosis Church emblem">
     <span>Apotheosis Church</span>
   </a>
-  <div class="nav-links">
-    <a href="#about">About</a>
+
+  <button class="menu" onclick="document.querySelector('.nav').classList.toggle('open')">Menu</button>
+
+  <div class="navlinks">
     <a href="#beliefs">Beliefs</a>
+    <a href="#faith">Faith</a>
     <a href="#book">Book</a>
-    <a href="#consciousness">Consciousness</a>
+    <a href="#consciousness">DMT</a>
     <a href="#community">Community</a>
-    <a href="#contact">Contact</a>
+    <a href="#faq">FAQ</a>
+    <a class="nav-donate" href="#donate">Donate</a>
   </div>
 </nav>
 
-<header class="hero" id="home">
-  <div class="hero-inner">
-    <img class="hero-logo" src="images/logo.png" alt="Apotheosis Church emblem">
-    <div class="kicker">A path of growth, wisdom, and humility</div>
+<header id="home" class="hero">
+  <div class="hero-inner reveal">
+    <img class="hero-logo" src="images/logo.png" alt="Apotheosis Church logo">
+    <div class="kicker">Growth Through Experience</div>
     <h1>APOTHEOSIS CHURCH</h1>
-    <h2>Lead With Honesty And Humility</h2>
-    <p>Apotheosis Church is a modern spiritual community dedicated to constructive growth through experience, responsible freedom, compassion, honest inquiry, and the betterment of humanity.</p>
-    <div class="buttons">
-      <a class="btn btn-primary" href="#beliefs">Explore Our Beliefs</a>
-      <a class="btn btn-secondary" href="#book">The Book of Apotheosis</a>
+    <h2>Lead With Honesty and Humility</h2>
+    <p>A modern spiritual community dedicated to constructive growth, responsible freedom, compassion, truth, consciousness, and the betterment of humanity.</p>
+    <div class="actions">
+      <a class="btn primary" href="#beliefs">Explore Beliefs</a>
+      <a class="btn secondary" href="#book">Read the Book</a>
     </div>
   </div>
 </header>
 
-<section id="about">
-  <div class="container split">
-    <div>
-      <h3>Growth Through Experience</h3>
-      <p>We believe life is shaped by experience. Every success, failure, joy, hardship, relationship, and decision can become a source of wisdom.</p>
-      <p>The Path of Apotheosis is not about superiority. It is the continual refinement of character through honesty, humility, compassion, responsibility, and service.</p>
-      <p>Our central commitment is simple: grow through every experience, inspire through every action, and lead with honesty and humility.</p>
-    </div>
-    <img src="images/mountain-summit.png" alt="Mountain summit">
-  </div>
-</section>
-
 <section id="beliefs">
   <div class="container">
-    <div class="section-title">
-      <span>Foundational doctrine</span>
-      <h2>Core Principles</h2>
-      <p>Our beliefs are rooted in growth, responsibility, compassion, and the pursuit of wisdom without claiming certainty where certainty cannot honestly be known.</p>
+    <div class="section-head reveal">
+      <small>Our Beliefs</small>
+      <h2>Foundational Doctrine</h2>
+      <p>Apotheosis means becoming better through experience, not becoming superior to others.</p>
     </div>
 
-    <div class="cards">
-      <div class="card"><h3>Constructive Growth</h3><p>Growth is valuable when it increases wisdom, compassion, honesty, humility, responsibility, and service.</p></div>
-      <div class="card"><h3>Responsible Freedom</h3><p>Every person deserves the freedom to pursue a meaningful life while respecting the dignity and freedom of others.</p></div>
-      <div class="card"><h3>Compassion Before Judgment</h3><p>Understanding another person does not excuse harm, but it helps us respond with wisdom instead of blind condemnation.</p></div>
-      <div class="card"><h3>Honest Inquiry</h3><p>Truth should not be feared. We welcome evidence, reflection, science, philosophy, and sincere spiritual exploration.</p></div>
-      <div class="card"><h3>Redemption</h3><p>People are not permanently defined by their worst moment if genuine growth, accountability, and change have occurred.</p></div>
-      <div class="card"><h3>Shared Flourishing</h3><p>The success of those we love and the communities we belong to should be regarded as our own success.</p></div>
+    <div class="belief-grid">
+      <div class="belief reveal"><h3>Purpose of Life</h3><p>Human life exists for constructive growth through experience.</p></div>
+      <div class="belief reveal"><h3>Personal Growth</h3><p>Growth means developing wisdom, compassion, honesty, humility, responsibility, and service.</p></div>
+      <div class="belief reveal"><h3>Love</h3><p>Love exists in many forms and is healthiest when it promotes dignity, honesty, and mutual flourishing.</p></div>
+      <div class="belief reveal"><h3>Forgiveness</h3><p>Forgiveness closes a chapter. It does not require reopening trust or reconciliation.</p></div>
+      <div class="belief reveal"><h3>Redemption</h3><p>People can change when experience produces accountability and genuine transformation.</p></div>
+      <div class="belief reveal"><h3>Responsibility</h3><p>Freedom is inseparable from accountability for the effects of our choices.</p></div>
+      <div class="belief reveal"><h3>Preservation of Life</h3><p>Life is precious and should be protected whenever reasonably possible.</p></div>
+      <div class="belief reveal"><h3>Community</h3><p>The success of those we love should be regarded as our own success.</p></div>
+      <div class="belief reveal"><h3>Humility</h3><p>No person has finished growing. Certainty must never become arrogance.</p></div>
+      <div class="belief reveal"><h3>Truth</h3><p>Truth should not be feared. Honest inquiry strengthens faith.</p></div>
+      <div class="belief reveal"><h3>Consciousness</h3><p>Consciousness is a mystery worthy of careful, humble exploration.</p></div>
+      <div class="belief reveal"><h3>Death and the Unknown</h3><p>No one knows with certainty what follows death. We live this life with purpose while remaining open to possibility.</p></div>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="container split">
-    <img src="images/tree-of-growth.png" alt="Tree of growth">
-    <div>
-      <h3>The Measure of a Meaningful Life</h3>
-      <p>A meaningful life is not measured by wealth, status, or power. It is measured by the character we develop and the positive influence we leave behind.</p>
-      <p>The Church teaches emotional awareness: recognize, pause, understand, and redirect. Feelings are not moral failures. Responsibility lies in how we respond to them.</p>
+  <div class="container feature">
+    <img class="reveal" src="images/mountain-summit.png" alt="Mountain summit">
+    <div class="reveal">
+      <h3>The Path of Apotheosis</h3>
+      <p>Grow through every experience. Inspire through every action. Lead with honesty and humility.</p>
+      <p>This path is not perfection. It is the disciplined pursuit of wisdom, character, and positive impact.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faith" class="statement">
+  <div class="container">
+    <div class="statement-box reveal">
+      <div class="section-head">
+        <small>Statement of Faith</small>
+        <h2>What We Believe</h2>
+      </div>
+      <p><strong>We believe</strong> the purpose of human life is constructive growth through experience.</p>
+      <p><strong>We believe</strong> every person has inherent dignity and the right to pursue a meaningful life while respecting the same right in others.</p>
+      <p><strong>We believe</strong> truth should be pursued through honest inquiry, reflection, evidence, and humility.</p>
+      <p><strong>We believe</strong> compassion and accountability strengthen one another.</p>
+      <p><strong>We believe</strong> mystical experiences, including those associated with DMT, may be discussed thoughtfully as part of the wider mystery of consciousness, but they do not replace ethics, humility, or responsibility.</p>
     </div>
   </div>
 </section>
 
 <section id="book">
-  <div class="container split">
-    <div>
+  <div class="container feature">
+    <div class="reveal">
       <h3>The Book of Apotheosis</h3>
-      <p>The Book of Apotheosis is the developing theological and philosophical text of the Church. It gathers our doctrines on growth, love, forgiveness, justice, humility, death, consciousness, and service.</p>
-      <p>It is not written to end questioning. It is written to deepen it.</p>
+      <p>A developing collection of teachings on the Path, love, jealousy, marriage, forgiveness, murder, redemption, consciousness, near-death experiences, ethics, and humility.</p>
+      <p>It is not written to end questions. It is written to make the questions deeper and the life more honest.</p>
     </div>
-    <img src="images/book-of-apotheosis.png" alt="Book of Apotheosis">
+    <img class="reveal" src="images/book-of-apotheosis.png" alt="Book of Apotheosis">
   </div>
 </section>
 
 <section id="consciousness">
   <div class="container">
-    <div class="section-title">
-      <span>Consciousness and mystery</span>
-      <h2>Exploration Without Dogma</h2>
-      <p>We discuss consciousness, mystical experiences, near-death experiences, and DMT as topics of inquiry—not as shortcuts, commands, or claims of certainty.</p>
+    <div class="section-head reveal">
+      <small>DMT and Consciousness</small>
+      <h2>Subtle, Serious, Open-Minded</h2>
+      <p>DMT is not the center of the Church. It is one subject among many in the exploration of consciousness, mystical experience, and human transformation.</p>
     </div>
 
-    <div class="image-grid">
-      <div class="image-tile"><img src="images/cosmic-consciousness.png" alt=""><span>Cosmic Consciousness</span></div>
-      <div class="image-tile"><img src="images/sacred-consciousness.png" alt=""><span>Sacred Consciousness</span></div>
-      <div class="image-tile"><img src="images/cosmic-observatory.png" alt=""><span>Honest Inquiry</span></div>
-      <div class="image-tile"><img src="images/night-sky.png" alt=""><span>The Unknown</span></div>
+    <div class="visual-row">
+      <div class="visual-card reveal">
+        <img src="images/cosmic-consciousness.png" alt="Cosmic consciousness">
+        <div><h3>Consciousness</h3><p>A mystery worthy of careful inquiry.</p></div>
+      </div>
+      <div class="visual-card reveal">
+        <img src="images/cosmic-observatory.png" alt="Cosmic observatory">
+        <div><h3>Inquiry</h3><p>Science, philosophy, and spiritual experience can all raise meaningful questions.</p></div>
+      </div>
+      <div class="visual-card reveal">
+        <img src="images/light-through-darkness.png" alt="Light through darkness">
+        <div><h3>Transformation</h3><p>Extraordinary experiences matter only if they help us live with more wisdom and responsibility.</p></div>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="banner">
-  <div class="container">
-    <h2>Grow Through Every Experience</h2>
-    <p>Inspire through every action. Lead with honesty and humility. Build a life that improves you and strengthens the world around you.</p>
   </div>
 </section>
 
 <section id="community">
-  <div class="container">
-    <div class="section-title">
-      <span>Community</span>
-      <h2>Service, Support, and Shared Growth</h2>
-      <p>Community should not weaken individuality. It should help people become stronger, wiser, and more capable of helping others.</p>
+  <div class="container feature">
+    <img class="reveal" src="images/volunteer-outreach.png" alt="Volunteer outreach">
+    <div class="reveal">
+      <h3>Community and Outreach</h3>
+      <p>Community exists to support growth, not control people. We encourage service, volunteer outreach, discussion, and future local chapters.</p>
+      <p>The goal is to leave people, families, and communities stronger than we found them.</p>
     </div>
-
-    <div class="image-grid">
-      <div class="image-tile"><img src="images/helping-hand.png" alt=""><span>Helping Others Rise</span></div>
-      <div class="image-tile"><img src="images/community-campfire.png" alt=""><span>Shared Reflection</span></div>
-      <div class="image-tile"><img src="images/volunteer-outreach.png" alt=""><span>Outreach</span></div>
-      <div class="image-tile"><img src="images/journey-together.png" alt=""><span>The Journey</span></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container split">
-    <img src="images/library-of-wisdom.png" alt="Library of wisdom">
-    <div>
-      <h3>Wisdom Through Understanding</h3>
-      <p>The Church teaches that wisdom grows when we examine life honestly. We do not claim to possess all truth. We seek it with humility.</p>
-      <p>Where knowledge ends, arrogance should not begin. Mystery should inspire inquiry, gratitude, and care for the life we know we have.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container split">
-    <div>
-      <h3>Love, Family, and Responsibility</h3>
-      <p>Love exists in many forms: romantic, familial, platonic, collective, and universal. Healthy love supports dignity, honesty, growth, and mutual flourishing.</p>
-      <p>Forgiveness does not require renewed trust. It allows a painful chapter to have an ending, while still honoring wisdom and boundaries.</p>
-    </div>
-    <img src="images/love-relationships.png" alt="Love and relationships">
   </div>
 </section>
 
 <section>
   <div class="container">
-    <div class="image-grid">
-      <div class="image-tile"><img src="images/parent-child.png" alt=""><span>Family</span></div>
-      <div class="image-tile"><img src="images/meditation-mountains.png" alt=""><span>Reflection</span></div>
-      <div class="image-tile"><img src="images/sacred-geometry.png" alt=""><span>Interconnection</span></div>
-      <div class="image-tile"><img src="images/philosopher-view.png" alt=""><span>Perspective</span></div>
+    <div class="section-head reveal">
+      <small>The Book</small>
+      <h2>Future Chapters</h2>
+    </div>
+
+    <div class="chapter-grid">
+      <div class="chapter reveal"><h3>The Path</h3><p>Growth, humility, responsibility, and example.</p></div>
+      <div class="chapter reveal"><h3>Love</h3><p>Romantic, familial, platonic, collective, and universal love.</p></div>
+      <div class="chapter reveal"><h3>Jealousy</h3><p>Recognize, pause, understand, and redirect.</p></div>
+      <div class="chapter reveal"><h3>Marriage</h3><p>Commitment, growth, children, separation, and dignity.</p></div>
+      <div class="chapter reveal"><h3>Forgiveness</h3><p>Closure without required reconciliation.</p></div>
+      <div class="chapter reveal"><h3>Justice</h3><p>Preserving life while leaving room for redemption.</p></div>
+      <div class="chapter reveal"><h3>Consciousness</h3><p>DMT, mystical experiences, and careful inquiry.</p></div>
+      <div class="chapter reveal"><h3>Death</h3><p>Humility before the unknown.</p></div>
     </div>
   </div>
 </section>
 
-<footer class="footer" id="contact">
-  <img src="images/church-emblem.png" alt="Church emblem">
+<section id="donate" class="donate">
+  <div class="container">
+    <div class="donate-box reveal">
+      <h2>Support the Mission</h2>
+      <p>Donations help support educational materials, community programs, outreach, website development, and the continued creation of church resources.</p>
+      <p>Add your donation processor link here when ready.</p>
+      <a class="btn primary" href="#contact">Contact About Donations</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <small>FAQ</small>
+      <h2>Questions People Will Ask</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <div class="faq-question">What does Apotheosis mean? <span>+</span></div>
+        <div class="faq-answer">Within this Church, Apotheosis means the continual refinement of character through experience, honesty, humility, compassion, and service.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is this Christianity? <span>+</span></div>
+        <div class="faq-answer">No. Apotheosis Church is an independent spiritual organization focused on growth, ethics, consciousness, and responsible freedom.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do you believe in God? <span>+</span></div>
+        <div class="faq-answer">The Church does not require certainty about questions that cannot presently be answered. Members may hold different views while walking the same ethical path.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What is your position on DMT? <span>+</span></div>
+        <div class="faq-answer">DMT may be discussed as part of the broader study of consciousness and mystical experience. It is not the central purpose of the Church.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What happens after death? <span>+</span></div>
+        <div class="faq-answer">No one knows with certainty. We focus on living this life well while remaining open to consistent experiences, evidence, and future understanding.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-card reveal">
+      <h2>Contact Apotheosis Church</h2>
+      <p>Use this section for membership, community, outreach, donation, or general questions.</p>
+      <form action="mailto:contact@apotheosischurch.org" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your name">
+        <input type="email" name="email" placeholder="Your email">
+        <textarea name="message" placeholder="Your message"></textarea>
+        <button class="btn primary" type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-image reveal">
+      <img src="images/night-sky.png" alt="Night sky">
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <img src="images/church-emblem.png" alt="Apotheosis Church emblem">
   <h3>Apotheosis Church</h3>
-  <p>A spiritual community dedicated to wisdom, growth, compassion, responsible freedom, and the betterment of humanity.</p>
-  <p><strong>Grow through every experience. Inspire through every action. Lead with honesty and humility.</strong></p>
+  <p>Grow through every experience. Inspire through every action. Lead with honesty and humility.</p>
+  <p>© 2026 Apotheosis Church. All rights reserved.</p>
 </footer>
 
 <script>
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.style.opacity=1;
-      entry.target.style.transform="translateY(0)";
-    }
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('show');
   });
-},{threshold:.12});
+}, { threshold: 0.12 });
 
-document.querySelectorAll("section .container, .card, .image-tile").forEach(el=>{
-  el.style.opacity=0;
-  el.style.transform="translateY(28px)";
-  el.style.transition="opacity .7s ease, transform .7s ease";
-  observer.observe(el);
+reveals.forEach(el => observer.observe(el));
+
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    question.parentElement.classList.toggle('open');
+  });
 });
 </script>
 
