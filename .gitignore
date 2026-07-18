@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+members.db
+__pycache__/
+*.py[cod]
+
+# Private corporate, tax, and governance records (never publish with the website)
+Apotheosis Church Documentation/
+
+# Private Book manuscripts and document-rendering previews
+Book_of_Apotheosis_*.docx
+.docx-qa-*/
