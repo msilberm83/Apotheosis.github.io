@@ -1,3 +1,22 @@
+const analyticsMeasurementId = 'G-YGQCHPYB80';
+const analyticsHosts = new Set(['apotheosischurch.org', 'www.apotheosischurch.org']);
+
+if (analyticsHosts.has(window.location.hostname)) {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag('js', new Date());
+  window.gtag('config', analyticsMeasurementId, {
+    anonymize_ip: true
+  });
+
+  const analyticsScript = document.createElement('script');
+  analyticsScript.async = true;
+  analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsMeasurementId}`;
+  document.head.appendChild(analyticsScript);
+}
+
 const landingHero = document.querySelector('#home.hero');
 
 if (landingHero) {
