@@ -11,3 +11,13 @@ Apotheosis Church Documentation/
 # Private Book manuscripts and document-rendering previews
 Book_of_Apotheosis_*.docx
 .docx-qa-*/
+
+# Book of Apotheosis production files — full interior PDFs, cover concepts,
+# and QA renders must never be publicly downloadable from the church site
+images/book-cover/
+images/book-illustrations/
+output/
+tmp/
+tools/
+scripts/
+copyright-current-build.tex
