@@ -208,20 +208,8 @@ if (signupForm) {
   });
 }
 
-const donationForm = document.querySelector('#donationForm');
-const donationMessage = document.querySelector('#donationMessage');
-
-if (donationForm) {
-  donationForm.addEventListener('submit', event => {
-    handleFormSubmission(
-      event,
-      donationForm,
-      donationMessage,
-      '/api/donate',
-      'Thank you for your generosity. Please contact us directly at mike@apotheosischurch.org for support options.'
-    );
-  });
-}
+// Donations are collected directly via the Stripe donation link on
+// support.html; there is no #donationForm in the current markup.
 
 const galleryContainer = document.querySelector('#imageGallery');
 const galleryImages = [

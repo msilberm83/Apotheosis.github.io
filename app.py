@@ -93,25 +93,16 @@ def send_verification(email: str, phone: str, email_code: str, phone_code: str) 
 
 
 def process_payment(plan: str) -> dict:
+    # Plus and Plus Plus memberships are sold directly through Stripe Payment
+    # Links on members.html (Join Plus / Join Plus Plus buttons) and are not
+    # routed through this backend. This function only remains to support the
+    # free Basic tier and the private complimentary access-code path below.
     if plan == "basic":
         return {"status": "free", "message": "Basic membership is free."}
 
-    checkout_variables = {
-        "plus": "GODADDY_PLUS_CHECKOUT_URL",
-        "plusplus": "GODADDY_PLUSPLUS_CHECKOUT_URL",
-        "donation": "GODADDY_DONATION_CHECKOUT_URL",
-    }
-    checkout_url = os.getenv(checkout_variables.get(plan, ""), "").strip()
-    if checkout_url.startswith("https://"):
-        return {
-            "status": "redirect",
-            "checkout_url": checkout_url,
-            "message": "Continue to GoDaddy's secure checkout to complete payment.",
-        }
-
     return {
         "status": "unavailable",
-        "message": "Secure checkout has not been configured for this option yet.",
+        "message": "Paid memberships are handled through Stripe checkout on the Members page.",
     }
 
 
@@ -193,8 +184,6 @@ def register_member():
     success_message = "Account created. Please verify your email and phone."
     if payment_result["status"] == "access-code":
         success_message = f"Access code accepted. Your free {plan.replace('plusplus', 'Plus Plus').replace('plus', 'Plus')} account has been created. Please verify your email and phone."
-    elif payment_result["status"] == "redirect":
-        success_message = "Account created with payment pending. Continue to GoDaddy's secure checkout."
 
     return jsonify(
         {
@@ -238,36 +227,9 @@ def verify_member():
     return jsonify({"ok": False, "message": "That verification code is not valid."}), 400
 
 
-@app.route("/api/donate", methods=["POST"])
-def donate():
-    data = request.form
-    name = (data.get("name") or "").strip()
-    email = (data.get("email") or "").strip().lower()
-    phone = (data.get("phone") or "").strip()
-    amount = (data.get("amount") or "0").strip()
-
-    try:
-        amount_value = float(amount)
-    except ValueError:
-        return jsonify({"ok": False, "message": "Please enter a valid donation amount."}), 400
-
-    if not name or not email or not phone or amount_value <= 0:
-        return jsonify({"ok": False, "message": "Please complete the donation form."}), 400
-
-    payment_result = process_payment("donation")
-    if payment_result["status"] == "unavailable":
-        return jsonify({"ok": False, "message": payment_result["message"]}), 503
-    reward_message = ""
-    if amount_value >= 1000:
-        reward_message = " You also receive a free one-year Plus Plus membership."
-
-    return jsonify(
-        {
-            "ok": True,
-            "message": f"Continue to GoDaddy's secure checkout to submit your ${amount_value:.2f} donation." + reward_message,
-            "payment": payment_result,
-        }
-    )
+# Note: donations are collected directly through the Stripe donation link on
+# support.html ("Continue to Secure Donation"). There is no /api/donate route
+# because nothing in the current frontend posts to it.
 
 
 if __name__ == "__main__":

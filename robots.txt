@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /hidden.html
+
+Sitemap: https://www.apotheosischurch.org/sitemap.xml
