@@ -244,7 +244,15 @@ const galleryImages = [
   { src: 'images/relationships.webp', title: 'Relationships', text: 'A reminder that growth is relational.' },
   { src: 'images/w62mB.webp', title: 'Every Generation', text: 'What we model today shapes what follows.' },
   { src: 'images/two-worlds-village.png', title: 'Partnership', text: 'A practical place of shelter, dignity, and renewal.' },
-  { src: 'images/apotheosis-partnership.png', title: 'Two Worlds Together', text: 'Service strengthened through partnership.' }
+  { src: 'images/apotheosis-partnership.png', title: 'Two Worlds Together', text: 'Service strengthened through partnership.' },
+  { src: 'images/temple-portal-stars.webp', title: 'The Threshold', text: 'Standing at the edge of the knowable, facing what is not yet understood.' },
+  { src: 'images/roots-gold-veins.webp', title: 'What Holds the Light', text: 'What is broken and repaired still holds the light.' },
+  { src: 'images/golden-ruins-foundation.webp', title: 'Laying the Foundation', text: 'Every lasting structure begins with ground that has been prepared.' },
+  { src: 'images/mountain-peak-figure.webp', title: 'The Summit', text: 'Arrival is brief. The climb is what shapes the person who arrives.' },
+  { src: 'images/couple-pier.webp', title: 'Held Together', text: 'Connection steady enough to stand on, even over deep water.' },
+  { src: 'images/father-child-path.webp', title: 'What We Pass On', text: 'The next generation learns the path by walking it with us.' },
+  { src: 'images/mirror-chairs.webp', title: 'Facing the Self', text: 'Every reflection is a chance to see more honestly.' },
+  { src: 'images/kintsugi-texture.webp', title: 'Repaired, Not Hidden', text: 'The break becomes part of the story instead of something to conceal.' }
 ];
 
 if (galleryContainer) {
