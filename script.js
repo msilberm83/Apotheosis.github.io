@@ -17,42 +17,8 @@ if (analyticsHosts.has(window.location.hostname)) {
   document.head.appendChild(analyticsScript);
 }
 
-const landingHero = document.querySelector('#home.hero');
-
-if (landingHero) {
-  const heroBackgrounds = [
-    { src: 'images/landing-observatory.webp', size: 'cover', position: 'center' },
-    { src: 'images/hero-celestial-option-1.png', size: 'cover', position: 'center' },
-    { src: 'images/hero-celestial-2026.webp', size: 'cover', position: 'center' },
-    {
-      src: 'images/background.webp',
-      size: 'auto 100%',
-      position: 'right center',
-      mobilePosition: 'center center'
-    }
-  ];
-  const rotationKey = 'apotheosisHeroBackgroundIndex';
-  let heroIndex = 0;
-
-  try {
-    const previousIndex = Number.parseInt(localStorage.getItem(rotationKey), 10);
-    heroIndex = Number.isInteger(previousIndex)
-      ? (previousIndex + 1) % heroBackgrounds.length
-      : 0;
-    localStorage.setItem(rotationKey, String(heroIndex));
-  } catch (error) {
-    heroIndex = Math.floor(Math.random() * heroBackgrounds.length);
-  }
-
-  const activeHero = heroBackgrounds[heroIndex];
-  landingHero.style.setProperty('--hero-background', `url("${activeHero.src}")`);
-  landingHero.style.setProperty('--hero-background-size', activeHero.size);
-  landingHero.style.setProperty('--hero-background-position', activeHero.position);
-  landingHero.style.setProperty('--hero-background-mobile-position', activeHero.mobilePosition || activeHero.position);
-
-  const nextHeroImage = new Image();
-  nextHeroImage.src = heroBackgrounds[(heroIndex + 1) % heroBackgrounds.length].src;
-}
+// Homepage hero background is fixed to a single image (set via inline style
+// in index.html). No rotation — intentionally just the one image.
 
 const reveals = document.querySelectorAll('.reveal');
 
@@ -229,7 +195,7 @@ const galleryImages = [
   { src: 'images/meditation-mountains.webp', title: 'Purpose of Life', text: 'Reflection opening a path toward growth and direction.' },
   { src: 'images/ideas-matter-background.webp', title: 'Ideas That Matter', text: 'Thought becoming character through living patterns.' },
   { src: 'images/questions.webp', title: 'Four Questions for the Path', text: 'Shared inquiry guided by observation and wonder.' },
-  { src: 'images/348dadc9-395b-43fd-a49e-e70e379cd0bc.png', title: 'Growth Is Rarely Straight', text: 'Recursive patterns of becoming and return.' },
+  { src: 'images/348dadc9-395b-43fd-a49e-e70e379cd0bc.webp', title: 'Growth Is Rarely Straight', text: 'Recursive patterns of becoming and return.' },
   { src: 'images/journey-together.webp', title: 'The Path', text: 'Disciplined movement toward a clearer horizon.' },
   { src: 'images/consciousness.webp', title: 'Consciousness', text: 'The mystery of awareness made visible.' },
   { src: 'images/community-campfire.webp', title: 'Community', text: 'Belonging, reflection, and growth shared in community.' },
@@ -243,8 +209,8 @@ const galleryImages = [
   { src: 'images/helping-hand.webp', title: 'Support the Mission', text: 'Shared strength sustaining future growth.' },
   { src: 'images/relationships.webp', title: 'Relationships', text: 'A reminder that growth is relational.' },
   { src: 'images/w62mB.webp', title: 'Every Generation', text: 'What we model today shapes what follows.' },
-  { src: 'images/two-worlds-village.png', title: 'Partnership', text: 'A practical place of shelter, dignity, and renewal.' },
-  { src: 'images/apotheosis-partnership.png', title: 'Two Worlds Together', text: 'Service strengthened through partnership.' },
+  { src: 'images/two-worlds-village.webp', title: 'Partnership', text: 'A practical place of shelter, dignity, and renewal.' },
+  { src: 'images/apotheosis-partnership.webp', title: 'Two Worlds Together', text: 'Service strengthened through partnership.' },
   { src: 'images/temple-portal-stars.webp', title: 'The Threshold', text: 'Standing at the edge of the knowable, facing what is not yet understood.' },
   { src: 'images/roots-gold-veins.webp', title: 'What Holds the Light', text: 'What is broken and repaired still holds the light.' },
   { src: 'images/golden-ruins-foundation.webp', title: 'Laying the Foundation', text: 'Every lasting structure begins with ground that has been prepared.' },
